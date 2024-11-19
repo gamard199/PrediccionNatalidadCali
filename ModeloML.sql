@@ -26,12 +26,15 @@ ADD COLUMN prc_nmer06 double precision, ADD COLUMN prc_nmer07 double precision,
 ADD COLUMN prc_nmer08 double precision, ADD COLUMN prc_nmer09 double precision,
 ADD COLUMN prc_nmer10 double precision, ADD COLUMN prc_nmer11 double precision,
 ADD COLUMN prc_nmer12 double precision, ADD COLUMN prc_nmer13 double precision,
-ADD COLUMN prc_nmer14 double precision, ADD COLUMN prc_nmer15 double precision;
+ADD COLUMN prc_nmer14 double precision, ADD COLUMN prc_nmer15 double precision,
+ADD COLUMN prc_nmer16 double precision, ADD COLUMN prc_nmer17 double precision;
+
+
 
 -- Calculo de indicadores por cada año
 
 ---- año 2003
-UPDATE manzanas_cali SET prc_nmer03 = (cast(ed15 as double precision)/mer03_07)*100 
+UPDATE manzanas_cali SET prc_nmer03 = ROUND((cast(ed15 as double precision)/mer03_07)*100, 4) 
 where mer03_07 <>0;
 
 ---- año 2004
@@ -52,44 +55,53 @@ where mer03_07 <>0;
 
 ---- año 2008
 UPDATE manzanas_cali SET prc_nmer08 = (cast(ed10 as double precision)/mer08_12)*100 
-where mer03_07 <>0;
+where mer08_12 <>0;
 
 ---- año 2009
 UPDATE manzanas_cali SET prc_nmer09 = (cast(ed9 as double precision)/mer08_12)*100 
-where mer03_07 <>0;
+where mer08_12 <>0;
 
 ---- año 2010
 UPDATE manzanas_cali SET prc_nmer10 = (cast(ed8 as double precision)/mer08_12)*100 
-where mer03_07 <>0;
+where mer08_12 <>0;
 
 ---- año 2011
 UPDATE manzanas_cali SET prc_nmer11 = (cast(ed7 as double precision)/mer08_12)*100 
-where mer03_07 <>0;
+where mer08_12 <>0;
 
 ---- año 2012
 UPDATE manzanas_cali SET prc_nmer12 = (cast(ed6 as double precision)/mer08_12)*100 
-where mer03_07 <>0;
+where mer08_12 <>0;
 
 ---- año 2013
 UPDATE manzanas_cali SET prc_nmer13 = (cast(ed5 as double precision)/mer13_17)*100 
-where mer03_07 <>0;
+where mer13_17 <>0;
 
 ---- año 2014
 UPDATE manzanas_cali SET prc_nmer14 = (cast(ed4 as double precision)/mer13_17)*100 
-where mer03_07 <>0;
+where mer13_17 <>0;
 
 ---- año 2015
 UPDATE manzanas_cali SET prc_nmer15 = (cast(ed3 as double precision)/mer13_17)*100 
-where mer03_07 <>0;
+where mer13_17 <>0;
 
 ---- año 2016
 UPDATE manzanas_cali SET prc_nmer16 = (cast(ed2 as double precision)/mer13_17)*100 
-where mer03_07 <>0;
+where mer13_17 <>0;
 
 ---- año 2017
-UPDATE manzanas_cali SET prc_nmer17 = (cast(ed1
-as double precision)/mer13_17)*100 
-where mer03_07 <>0;
+UPDATE manzanas_cali SET prc_nmer17 = (cast(ed1 as double precision)/mer13_17)*100 
+where mer13_17 <>0;
+
+
+-- Segmentacion geografica de los datos de la BD por comunas y barrios
+
+---- Creacion de campos de segmentacion geografica
+
+ALTER TABLE manzanas_cali ADD COLUMN comuna varchar(20), 
+ADD COLUMN barrio varchar(70); 
+
+
 
 
 
