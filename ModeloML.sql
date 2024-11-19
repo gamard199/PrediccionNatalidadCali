@@ -28,5 +28,72 @@ ADD COLUMN prc_nmer10 double precision, ADD COLUMN prc_nmer11 double precision,
 ADD COLUMN prc_nmer12 double precision, ADD COLUMN prc_nmer13 double precision,
 ADD COLUMN prc_nmer14 double precision, ADD COLUMN prc_nmer15 double precision;
 
+-- Calculo de indicadores por cada año
+
+---- año 2003
+UPDATE manzanas_cali SET prc_nmer03 = (cast(ed15 as double precision)/mer03_07)*100 
+where mer03_07 <>0;
+
+---- año 2004
+UPDATE manzanas_cali SET prc_nmer04 = (cast(ed14 as double precision)/mer03_07)*100 
+where mer03_07 <>0;
+
+---- año 2005
+UPDATE manzanas_cali SET prc_nmer05 = (cast(ed13 as double precision)/mer03_07)*100 
+where mer03_07 <>0;
+
+---- año 2006
+UPDATE manzanas_cali SET prc_nmer06 = (cast(ed12 as double precision)/mer03_07)*100 
+where mer03_07 <>0;
+
+---- año 2007
+UPDATE manzanas_cali SET prc_nmer07 = (cast(ed11 as double precision)/mer03_07)*100 
+where mer03_07 <>0;
+
+---- año 2008
+UPDATE manzanas_cali SET prc_nmer08 = (cast(ed10 as double precision)/mer08_12)*100 
+where mer03_07 <>0;
+
+---- año 2009
+UPDATE manzanas_cali SET prc_nmer09 = (cast(ed9 as double precision)/mer08_12)*100 
+where mer03_07 <>0;
+
+---- año 2010
+UPDATE manzanas_cali SET prc_nmer10 = (cast(ed8 as double precision)/mer08_12)*100 
+where mer03_07 <>0;
+
+---- año 2011
+UPDATE manzanas_cali SET prc_nmer11 = (cast(ed7 as double precision)/mer08_12)*100 
+where mer03_07 <>0;
+
+---- año 2012
+UPDATE manzanas_cali SET prc_nmer12 = (cast(ed6 as double precision)/mer08_12)*100 
+where mer03_07 <>0;
+
+---- año 2013
+UPDATE manzanas_cali SET prc_nmer13 = (cast(ed5 as double precision)/mer13_17)*100 
+where mer03_07 <>0;
+
+---- año 2014
+UPDATE manzanas_cali SET prc_nmer14 = (cast(ed4 as double precision)/mer13_17)*100 
+where mer03_07 <>0;
+
+---- año 2015
+UPDATE manzanas_cali SET prc_nmer15 = (cast(ed3 as double precision)/mer13_17)*100 
+where mer03_07 <>0;
+
+---- año 2016
+UPDATE manzanas_cali SET prc_nmer16 = (cast(ed2 as double precision)/mer13_17)*100 
+where mer03_07 <>0;
+
+---- año 2017
+UPDATE manzanas_cali SET prc_nmer17 = (cast(ed1
+as double precision)/mer13_17)*100 
+where mer03_07 <>0;
+
+
+
+
+
 
 
