@@ -109,6 +109,19 @@ WHERE ST_Intersects(manzanas_cali.geom, comunas.geom));
 UPDATE manzanas_cali SET barrio = (SELECT barrios.nombre FROM barrios 
 WHERE ST_Intersects(manzanas_cali.geom, barrios.geom));
 
+-- Construccion y generacion de tabla de indicadores de procentaje de poblacion
+-- femenina en edad reproductiva que tuvo hijo en cada año de la serie modelo
+-- con respecto al total de poblacion universo con potencial reproductivo 
+-- segmentado por manzana censal en la comuna 2 de Cali
+
+SELECT manz_ccnct AS codigo_manzana, prc_nmer03, prc_nmer04, prc_nmer05,
+prc_nmer06, prc_nmer07, prc_nmer08, prc_nmer09, prc_nmer10, prc_nmer11,
+prc_nmer12, prc_nmer13, prc_nmer14, prc_nmer15, prc_nmer16, prc_nmer17
+FROM manzanas_cali WHERE comuna = 'Comuna 2' and prc_nmer03 is not null;
+
+
+
+
 
 
 
