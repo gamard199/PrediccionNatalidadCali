@@ -99,7 +99,15 @@ where mer13_17 <>0;
 ---- Creacion de campos de segmentacion geografica
 
 ALTER TABLE manzanas_cali ADD COLUMN comuna varchar(20), 
-ADD COLUMN barrio varchar(70); 
+ADD COLUMN barrio varchar(70);
+
+---- Segmentacion geografica por comuna y barrio
+
+UPDATE manzanas_cali SET comuna = (SELECT comunas.nombre FROM comunas 
+WHERE ST_Intersects(manzanas_cali.geom, comunas.geom));
+
+UPDATE manzanas_cali SET barrio = (SELECT barrios.nombre FROM barrios 
+WHERE ST_Intersects(manzanas_cali.geom, barrios.geom));
 
 
 
