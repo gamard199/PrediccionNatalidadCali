@@ -119,6 +119,24 @@ prc_nmer06, prc_nmer07, prc_nmer08, prc_nmer09, prc_nmer10, prc_nmer11,
 prc_nmer12, prc_nmer13, prc_nmer14, prc_nmer15, prc_nmer16, prc_nmer17
 FROM manzanas_cali WHERE comuna = 'Comuna 2' and prc_nmer03 is not null;
 
+-- Segmentacion geografica por zonas de la Comuna 2
+
+---- Creacion de campo para realizar la segmentacion por zonas
+
+ALTER TABLE manzanas_cali ADD COLUMN zona varchar(20);
+
+---- Creacion de tabla de indicadores de numero de nacimientos por zona por año
+
+SELECT zona, SUM(ed1) AS edad1, SUM(ed2) AS edad2, SUM(ed3) AS edad3, 
+SUM(ed4) AS edad4, SUM(ed5) AS edad5, SUM(ed6) AS edad6, SUM(ed7) AS edad7,
+SUM(ed8) AS edad8, SUM(ed9) AS edad9, SUM(ed10) AS edad10, SUM(ed11) AS edad11,
+SUM(ed12) AS edad12, SUM(ed13) AS edad13, SUM(ed14) AS edad14, 
+SUM(ed15) AS edad15
+FROM manzanas_cali WHERE comuna = 'Comuna 2' and ed1 is not null 
+and zona is not null
+GROUP BY zona ORDER BY edad1, edad2, edad3, edad4, edad5, edad6, edad7, edad8,
+edad9, edad10, edad11, edad12, edad13, edad14, edad15;
+
 
 
 
