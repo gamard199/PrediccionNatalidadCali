@@ -117,7 +117,12 @@ WHERE ST_Intersects(manzanas_cali.geom, barrios.geom));
 SELECT manz_ccnct AS codigo_manzana, prc_nmer03, prc_nmer04, prc_nmer05,
 prc_nmer06, prc_nmer07, prc_nmer08, prc_nmer09, prc_nmer10, prc_nmer11,
 prc_nmer12, prc_nmer13, prc_nmer14, prc_nmer15, prc_nmer16, prc_nmer17
-FROM manzanas_cali WHERE comuna = 'Comuna 2' and prc_nmer03 is not null;
+FROM manzanas_cali WHERE comuna = 'Comuna 2' and prc_nmer03 is not null
+and prc_nmer04 is not null and prc_nmer05 is not null and prc_nmer06 is not null
+and prc_nmer07 is not null and prc_nmer08 is not null and prc_nmer09 is not null
+and prc_nmer10 is not null and prc_nmer11 is not null and prc_nmer12 is not null
+and prc_nmer13 is not null and prc_nmer14 is not null and prc_nmer15 is not null
+and prc_nmer16 is not null and prc_nmer17 is not null;
 
 -- Segmentacion geografica por zonas de la Comuna 2
 
@@ -127,15 +132,36 @@ ALTER TABLE manzanas_cali ADD COLUMN zona varchar(20);
 
 ---- Creacion de tabla de indicadores de numero de nacimientos por zona por año
 
-SELECT zona, SUM(ed1) AS edad1, SUM(ed2) AS edad2, SUM(ed3) AS edad3, 
+SELECT manz_ccnct AS manzana, ed1 , ed2 AS ed, SUM(ed3) AS edad3, 
 SUM(ed4) AS edad4, SUM(ed5) AS edad5, SUM(ed6) AS edad6, SUM(ed7) AS edad7,
 SUM(ed8) AS edad8, SUM(ed9) AS edad9, SUM(ed10) AS edad10, SUM(ed11) AS edad11,
 SUM(ed12) AS edad12, SUM(ed13) AS edad13, SUM(ed14) AS edad14, 
 SUM(ed15) AS edad15
 FROM manzanas_cali WHERE comuna = 'Comuna 2' and ed1 is not null 
-and zona is not null
-GROUP BY zona ORDER BY edad1, edad2, edad3, edad4, edad5, edad6, edad7, edad8,
+and totaled0_15 >= 50 
+GROUP BY manzana ORDER BY edad1, edad2, edad3, edad4, edad5, edad6, edad7, edad8,
 edad9, edad10, edad11, edad12, edad13, edad14, edad15;
+
+SELECT zona, SUM(prc_nmer03) AS porcent03, SUM(prc_nmer04) AS porcent04, 
+SUM(prc_nmer05) AS porcent05, SUM(prc_nmer06) AS porcent06, 
+SUM(prc_nmer07) AS porcent07, SUM(prc_nmer08) AS porcent08, 
+SUM(prc_nmer09) AS porcent09, SUM(prc_nmer10) AS porcent10, 
+SUM(prc_nmer11) AS porcent11, SUM(prc_nmer12) AS porcent12, 
+SUM(prc_nmer13) AS porcent13, SUM(prc_nmer14) AS porcent14, 
+SUM(prc_nmer15) AS porcent15, SUM(prc_nmer16) AS porcent16, 
+SUM(prc_nmer17) AS porcent17 FROM manzanas_cali 
+WHERE comuna = 'Comuna 2' and prc_nmer03 is not null and zona is not null
+GROUP BY zona ORDER BY porcent03, porcent04, porcent05, porcent06, porcent07,
+porcent08, porcent09, porcent10, porcent11, porcent12, porcent13, porcent14,
+porcent15, porcent16, porcent17;
+
+SELECT manz_ccnct AS manzana, ed1, ed2, ed3, ed4, ed5, ed6, ed7, ed8, ed9,
+ed10, ed11, ed12, ed13, ed14, ed15
+FROM manzanas_cali WHERE totaled0_15 > 50 
+and ed1 is not null and ed2 is not null
+and ed3 is not null and ed4 is not null and ed5 is not null and ed6 is not null and ed7 is not null
+and ed8 is not null and ed9 is not null and ed10 is not null and ed11 is not null
+and ed12 is not null and ed13 is not null and ed14 is not null and ed15 is not null;
 
 
 
