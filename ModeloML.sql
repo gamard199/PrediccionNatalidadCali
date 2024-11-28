@@ -78,17 +78,13 @@ ALTER TABLE manzanas_cali ADD COLUMN porc_nmer03_17 double precision;
 UPDATE manzanas_cali SET porc_nmer03_17 = totaled0_15 / prom_mer03_17
 where prom_mer03_17 <> 0;
 
+-- Construccion de tablas de indicador de natalidad filtrado por estrato 
+-- socioeconomico y porcentaje de poblacion femenina en edad reproductiva
+-- que tuvieron hijo en el periodo 2003 a 2017 con respecto al total de 
+-- cada manzana (menor y mayor al 50% del total)
 
-
-
-
-
-
-
-
-
-
-
-
+SELECT manzanac, ed1, ed2, ed3, ed4, ed5, ed6, ed7, ed8, ed9, ed10, ed11,
+ed12, ed13, ed14, ed15 FROM manzanas_cali
+WHERE estrato_md >= 4 and manzanac is not null and porc_nmer03_17 >= 0.5;
 
 
