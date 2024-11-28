@@ -54,6 +54,19 @@ edad9, edad10, edad11, edad12, edad13, edad14, edad15;
 
 ALTER TABLE manzanas_cali ADD COLUMN estrato_md int;
 
+-- Construccion de indicador de promedio de poblacion femenina en edad 
+-- reproductiva para los 3 quinquenios por manzana
+
+---- Creacion del campo
+
+ALTER TABLE manzanas_cali ADD COLUMN prom_mer03_17 double precision;
+
+---- Construccion del indicador
+
+UPDATE manzanas_cali SET prom_mer03_17 = (mer13_17+mer08_12+mer03_07)/3;
+
+
+
 
 
 
