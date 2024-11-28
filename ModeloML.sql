@@ -65,6 +65,19 @@ ALTER TABLE manzanas_cali ADD COLUMN prom_mer03_17 double precision;
 
 UPDATE manzanas_cali SET prom_mer03_17 = (mer13_17+mer08_12+mer03_07)/3;
 
+-- Construccion de indicador de porcentaje de mujeres en edad reproductiva 
+-- que tuvieron hijo en el periodo 2003 a 2017 con respecto al promedio
+-- de poblacion total femenina para los 3 quinquenios
+
+---- Creacion del campo
+
+ALTER TABLE manzanas_cali ADD COLUMN porc_nmer03_17 double precision;
+
+---- Calculo del indicador de porcentaje
+
+UPDATE manzanas_cali SET porc_nmer03_17 = totaled0_15 / prom_mer03_17
+where prom_mer03_17 <> 0;
+
 
 
 
