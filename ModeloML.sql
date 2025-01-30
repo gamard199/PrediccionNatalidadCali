@@ -83,8 +83,56 @@ where prom_mer03_17 <> 0;
 -- que tuvieron hijo en el periodo 2003 a 2017 con respecto al total de 
 -- cada manzana (menor y mayor al 50% del total)
 
+
 SELECT manzanac, ed1, ed2, ed3, ed4, ed5, ed6, ed7, ed8, ed9, ed10, ed11,
 ed12, ed13, ed14, ed15 FROM manzanas_cali
-WHERE estrato_md >= 4 and manzanac is not null and porc_nmer03_17 >= 0.5;
+WHERE estrato_md >= 4 and manzanac is not null;
+
+SELECT 
+
+-- Creacion de tabla
+
+CREATE TABLE resultados_17(manzanac varchar(254), ed1 int, ed2 int, ed3 int,
+ed4 int, ed5 int, ed6 int, ed7 int, ed8 int, ed9 int, ed10 int, ed11 int,
+ed12 int, ed13 int, ed14 int, ed15 int)
+
+INSERT INTO resultados_17 SELECT manzanac, ed1, ed2, 
+ed3, ed4, ed5, ed6, ed7, ed8, ed9, ed10, ed11, ed12, ed13, ed14, ed15
+FROM manzanas_cali WHERE estrato_md >= 4 and manzanac is not null;
+
+SELECT zona, SUM(ed1) AS nac2017, SUM(ed2) AS nac2016, SUM(ed3) AS nac2015,
+SUM(ed4) AS nac2014, SUM(ed5) AS nac2013, SUM(ed6) AS nac2012, SUM(ed7) AS nac2011,
+SUM(ed8) AS nac2010, SUM(ed9) AS nac2009, SUM(ed10) AS nac2008, SUM(ed11) AS nac2007,
+SUM(ed12) AS nac2006, SUM(ed13) AS nac2005, SUM(ed14) AS nac2004, SUM(ed15) AS nac2003,
+SUM(pred_nc18) AS pred_n2018, SUM(pred_nc19) AS pred_n2019, SUM(pred_nc20) AS pred_n2020,
+SUM(pred_nc21) AS pred_n2021, SUM(pred_nc22) AS pred_n2022, SUM(pred_nc23) AS pred_n2023,
+SUM(pred_nc24) AS pred_n2024, SUM(pred_nc25) AS pred_n2025, SUM(pred_nc26) AS pred_n2026,
+SUM(pred_nc27) AS pred_n2027, SUM(pred_nc28) AS pred_n2028, SUM(pred_nc29) AS pred_n2029,
+SUM(pred_nc30) AS pred_n2030, SUM(pred_nc31) AS pred_n2031, SUM(pred_nc32) AS pred_n2032
+FROM manzanac456 where comuna = 'Comuna 2'
+GROUP BY zona ORDER BY nac2017, nac2016, nac2015, nac2014, nac2013, nac2012,
+nac2011, nac2010, nac2009, nac2008, nac2007, nac2006, nac2005, nac2004, nac2003,
+pred_n2018, pred_n2019, pred_n2020, pred_n2021,
+pred_n2022, pred_n2023, pred_n2024, pred_n2025, pred_n2026, pred_n2027,
+pred_n2028, pred_n2029, pred_n2030, pred_n2031, pred_n2032;
+
+alter table barrios add column n2003 int, add column n2004 int, add column n2005 int,
+add column n2006 int, add column n2007 int, add column n2008 int, add column n2009 int,
+add column n2010 int, add column n2011 int, add column n2012 int, add column n2013 int,
+add column n2014 int, add column n2015 int, add column n2016 int, add column n2017 int;
+
+alter table barrios add column pred2018 int, add column pred2019 int,
+add column pred2020 int, add column pred2021 int, add column pred2022 int,
+add column pred2023 int, add column pred2024 int, add column pred2025 int,
+add column pred2026 int, add column pred2027 int, add column pred2028 int,
+add column pred2029 int, add column pred2030 int, add column pred2031 int,
+add column pred2032 int;
+
+update barrios set pred2032 = (select SUM(pred_nc32) from manzanac456 
+where manzanac456.barrio = barrios.barrio );
+
+
+
+
 
 
