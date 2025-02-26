@@ -20,7 +20,7 @@ Censos Nacionales de Población y Vivienda 2018 y 2005. Departamento Administrat
 
 ## Instrucciones:
 
-Para consultar el código de desarrollo del modelo predictivo de datos demográficos de natalidad en la ciudad de Cali, que utiliza el algoritmo Bosques Aleatorios Regresión de Machine Learning, por favor ver archivos con extensión .py
+Para consultar el código de desarrollo del modelo predictivo de datos demográficos de natalidad en la ciudad de Cali, que utiliza el algoritmo Bosques Aleatorios Regresión de Machine Learning, por favor ver archivos con extensión .ipynb (Jupyter Notebook)
 
 Para visualizar los graficos de análisis de datos demográficos consultar carpeta "Graficas"
 
