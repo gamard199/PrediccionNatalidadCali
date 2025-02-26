@@ -132,6 +132,11 @@ update barrios set pred2032 = (select SUM(pred_nc32) from manzanac456
 where manzanac456.barrio = barrios.barrio );
 
 
+--- Creacion de campos de numero de viviendas para los años 2018 y 2023 en capa barrios
+
+ALTER TABLE barrios ADD COLUMN viv_2018 int, ADD COLUMN viv_2023 int;
+
+
 
 
 
