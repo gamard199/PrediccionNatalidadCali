@@ -18,6 +18,14 @@ Ajustar los datos de número de viviendas por barrio y estrato socioeconomico 5 
 
 Censos Nacionales de Población y Vivienda 2018 y 2005. Departamento Administrativo Nacional de Estadística DANE. Infraestructura de Datos Espaciales de Santiago de Cali, IDESC.
 
+## Tecnologías y software utilizados:
+
+Lenguaje de programación: Python 3.8
+Entorno de desarrollo integrado (IDE): Jupyter Notebook
+Librerías de Python: MatplotLib, Pandas, NumPy, Scikit-Learn
+Sistema gerenciador de bases de datos: PostgreSQL con extensión PostGIS para soporte de datos espaciales
+Sistema de información geográfica: QGIS 3.4
+
 ## Instrucciones:
 
 Para consultar el código de desarrollo del modelo predictivo de datos demográficos de natalidad en la ciudad de Cali, que utiliza el algoritmo Bosques Aleatorios Regresión de Machine Learning, por favor ver archivos con extensión .ipynb (Jupyter Notebook)
