@@ -28,7 +28,7 @@ Sistema de información geográfica: QGIS 3.4
 
 ## Instrucciones:
 
-Para consultar el código de desarrollo del modelo predictivo de datos demográficos de natalidad en la ciudad de Cali, que utiliza el algoritmo Bosques Aleatorios Regresión de Machine Learning, por favor ver archivos con extensión .ipynb (Jupyter Notebook)
+Para consultar el código de desarrollo del modelo predictivo de datos demográficos de natalidad en la ciudad de Cali, que utiliza el algoritmo Bosques Aleatorios Regresión de Machine Learning, por favor ver archivos con extensión RandomForestHistorico.ipynb (Jupyter Notebook)
 
 Para visualizar los graficos de análisis de datos demográficos consultar carpeta "Graficas"
 
