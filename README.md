@@ -20,10 +20,10 @@ Censos Nacionales de Población y Vivienda 2018 y 2005. Departamento Administrat
 
 ## Tecnologías y software utilizados:
 
-Lenguaje de programación: Python 3.8
-Entorno de desarrollo integrado (IDE): Jupyter Notebook
-Librerías de Python: MatplotLib, Pandas, NumPy, Scikit-Learn
-Sistema gerenciador de bases de datos: PostgreSQL con extensión PostGIS para soporte de datos espaciales
+Lenguaje de programación: Python 3.8  
+Entorno de desarrollo integrado (IDE): Jupyter Notebook  
+Librerías de Python: MatplotLib, Pandas, NumPy, Scikit-Learn  
+Sistema gerenciador de bases de datos: PostgreSQL con extensión PostGIS para soporte de datos espaciales  
 Sistema de información geográfica: QGIS 3.4
 
 ## Instrucciones:
